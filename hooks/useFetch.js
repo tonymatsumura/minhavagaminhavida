@@ -3,7 +3,7 @@ import axios from "axios";
 //import { RAPID_API_KEY } from '@env';
 import { set } from "react-native-reanimated";
 
-const RAPID_API_KEY = '9caef3b9dcmsh7ac363ce6803102p12f445jsna006e4f70293'
+const RAPID_API_KEY = ''
 const rapidApiKey = RAPID_API_KEY;
 
 
