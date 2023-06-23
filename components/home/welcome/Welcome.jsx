@@ -1,75 +1,73 @@
-import { useState } from 'react'
-import { useRouter } from 'expo-router';
-import { icons, SIZES } from '../../../constants';
-import { OUTSTR } from '../../../constants/outputStr';
-
+import { useState } from "react";
 import {
     View,
     Text,
     TextInput,
     TouchableOpacity,
     Image,
-    FlatList
-} from 'react-native'
+    FlatList,
+} from "react-native";
+import { useRouter } from "expo-router";
 
-import styles from './welcome.style'
+import styles from "./welcome.style";
+import { icons, SIZES } from "../../../constants";
 
-const jobTypes = ["Tempo Integral", "Meio Período", "Contrato", "Estágio", "Freelance"]
+const jobTypes = ["Tempo Integral", "Diarista", "Contrato", "Freelancer"];
 
-const Welcome = () => {
-
+const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
     const router = useRouter();
-    const [activeJobType, setActiveJobType] = useState('Tempo Integral')
+    const [activeJobType, setActiveJobType] = useState("Full-time");
 
     return (
         <View>
             <View style={styles.container}>
-                <Text style={styles.userName}>{OUTSTR.welcome.greeting}</Text>
-                <Text style={styles.welcomeMessage}>{OUTSTR.welcome.searchBoxTitle}</Text>
+                <Text style={styles.userName}>Minha Vaga Minha Vida</Text>
+                <Text style={styles.welcomeMessage}>Quero minha vaga</Text>
             </View>
 
             <View style={styles.searchContainer}>
                 <View style={styles.searchWrapper}>
                     <TextInput
                         style={styles.searchInput}
-                        value=""
-                        onChange={() => { }}
-                        placeholder={OUTSTR.welcome.searchInput}
+                        value={searchTerm}
+                        onChangeText={(text) => setSearchTerm(text)}
+                        placeholder='O que você está procurando?'
                     />
                 </View>
 
-
-                <TouchableOpacity style={styles.searchBtn} onPress={() => { }}>
-                    <Image source={icons.search} resizeMode="contain" style={styles.searchBtnImage} />
+                <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
+                    <Image
+                        source={icons.search}
+                        resizeMode='contain'
+                        style={styles.searchBtnImage}
+                    />
                 </TouchableOpacity>
             </View>
 
             <View style={styles.tabsContainer}>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
                     data={jobTypes}
-                    renderItem={({ item }) => (
+                    renderItem={({ item, index }) => (
                         <TouchableOpacity
                             style={styles.tab(activeJobType, item)}
                             onPress={() => {
                                 setActiveJobType(item);
-                                router.push(`/search/${item}`)
+                                console.log("job type index: ", index)
+                                router.push(`/search/${item}`);
                             }}
-
                         >
-                            <Text style={styles.tabText(activeJobType, item)}>
-                                {item}
-                            </Text>
+                            <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
                         </TouchableOpacity>
                     )}
-                    keyExtractor={item => item}
+                    keyExtractor={(item) => item}
                     contentContainerStyle={{ columnGap: SIZES.small }}
                     horizontal
                 />
-
             </View>
-
         </View>
-    )
-}
+    );
+};
 
 export default Welcome;

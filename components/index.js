@@ -16,14 +16,14 @@ import Specifics from "./jobdetails/specifics/Specifics";
 import NearbyJobCard from "./common/cards/nearby/NearbyJobCard";
 
 export {
-  ScreenHeaderBtn,
-  Welcome,
-  Nearbyjobs,
-  Popularjobs,
-  Company,
-  JobTabs,
-  JobAbout,
-  JobFooter,
-  Specifics,
-  NearbyJobCard
+    ScreenHeaderBtn,
+    Welcome,
+    Nearbyjobs,
+    Popularjobs,
+    Company,
+    JobTabs,
+    JobAbout,
+    JobFooter,
+    Specifics,
+    NearbyJobCard
 };

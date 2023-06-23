@@ -12,7 +12,7 @@ const Layout = () => {
         DMRegular: require('../assets/fonts/DMSans-Regular.ttf'),
     })
 
-    console.log("fontsLoaded: " + fontsLoaded)
+    //console.log("fontsLoaded: " + fontsLoaded)
 
     const onLayoutRootView = useCallback(async () => {
         if (fontsLoaded) {
