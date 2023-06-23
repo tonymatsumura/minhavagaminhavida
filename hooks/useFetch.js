@@ -3,13 +3,8 @@ import axios from "axios";
 //import { RAPID_API_KEY } from '@env';
 import { set } from "react-native-reanimated";
 
-//const RAPID_API_KEY = '9caef3b9dcmsh7ac363ce6803102p12f445jsna006e4f70293'
-//const RAPID_API_KEY = '62543c5848msh9d36f1c43e2c897p1edfa2jsn89eae16a798a'
-//const rapidApiKey = RAPID_API_KEY;
-// method=getAll&params={"tab": "jsearch", "filter":{"job_employment_type":"FULLTIME"}}`,
-
-const endpoint = `https://script.google.com/macros/s/AKfycbyeIrRvDZgpfBdMwVFG6SEGVYB1U7HLVVenv2mPhcdDMHAGk785e57oa40Xrh00R2USUA/exec?`
-
+const RAPID_API_KEY = '9caef3b9dcmsh7ac363ce6803102p12f445jsna006e4f70293'
+const rapidApiKey = RAPID_API_KEY;
 
 
 function getMethod(method) {
