@@ -14,12 +14,12 @@ import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 import useFetch from "../../../hooks/useFetch";
 
 const Popularjobs = () => {
+    console.log("Popularjobs")
     const router = useRouter();
     const { data, isLoading, error } = useFetch('search', {
         query: 'React developer',
         num_pages: "1",
     })
-    //console.log("Popularjobs -> data", JSON.stringify(data))
 
     const [selectedJob, setSelectedJob] = useState();
 

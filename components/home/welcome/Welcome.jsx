@@ -1,22 +1,16 @@
+//#region Import
 import { useState } from "react";
-import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    FlatList,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList } from "react-native";
 import { useRouter } from "expo-router";
-
 import styles from "./welcome.style";
 import { icons, SIZES } from "../../../constants";
-
-const jobTypes = ["Tempo Integral", "Diarista", "Contrato", "Freelancer"];
+import { jobTypes } from "../../../constants/ConstantsJobs.js";
+//#endregion
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
+    console.log("Welcome")
     const router = useRouter();
-    const [activeJobType, setActiveJobType] = useState("Full-time");
+    const [activeJobType, setActiveJobType] = useState("Tempo Integral");
 
     return (
         <View>
@@ -54,7 +48,6 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
                             style={styles.tab(activeJobType, item)}
                             onPress={() => {
                                 setActiveJobType(item);
-                                console.log("job type index: ", index)
                                 router.push(`/search/${item}`);
                             }}
                         >

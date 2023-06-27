@@ -1,0 +1,1 @@
+export const jobTypes = ["Tempo Integral", "Diarista", "Contrato", "Freelancer"];

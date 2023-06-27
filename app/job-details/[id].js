@@ -1,3 +1,4 @@
+//#region Imports
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import {
@@ -20,9 +21,13 @@ import {
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hooks/useFetch";
 
+//#endregion
+
 const tabs = ["About", "Qualifications", "Responsibilities"];
 
 const JobDetails = () => {
+    console.log("JobDetails");
+
     const params = useSearchParams();
     const router = useRouter();
 
@@ -38,7 +43,6 @@ const JobDetails = () => {
         refetch()
         setRefreshing(false)
     }, []);
-
 
     const displayTabContent = () => {
         switch (activeTab) {
@@ -85,7 +89,7 @@ const JobDetails = () => {
                     headerRight: () => (
                         <ScreenHeaderBtn iconUrl={icons.share} dimension='60%' />
                     ),
-                    headerTitle: "",
+                    headerTitle: "Job Details",
                 }}
             />
 

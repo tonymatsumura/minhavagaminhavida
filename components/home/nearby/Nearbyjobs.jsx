@@ -8,6 +8,7 @@ import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard';
 import useFetch from '../../../hooks/useFetch'
 
 const Nearbyjobs = () => {
+    console.log("Nearbyjobs")
     const router = useRouter();
 
     const { data, isLoading, error } = useFetch('search', {

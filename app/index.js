@@ -11,6 +11,7 @@ import {
 } from "../components";
 
 const Home = () => {
+    console.log("Home");
     const router = useRouter()
     const [searchTerm, setSearchTerm] = useState("");
 

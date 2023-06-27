@@ -5,7 +5,7 @@ import { checkImageURL } from "../../../../utils";
 
 // POPULAR JOB CARD
 const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
-    //console.log("PopularJobCard -> item", JSON.stringify(item))
+    console.log("PopularJobCard -> item")
     return (
 
         <TouchableOpacity
