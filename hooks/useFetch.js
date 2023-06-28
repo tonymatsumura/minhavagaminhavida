@@ -5,6 +5,7 @@ import { set } from "react-native-reanimated";
 
 const RAPID_API_KEY = ''
 const rapidApiKey = RAPID_API_KEY;
+const endpoint = 'https://script.google.com/macros/s/AKfycbyeIrRvDZgpfBdMwVFG6SEGVYB1U7HLVVenv2mPhcdDMHAGk785e57oa40Xrh00R2USUA/exec?';
 
 
 function getMethod(method) {
