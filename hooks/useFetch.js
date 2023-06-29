@@ -17,7 +17,7 @@ function getMethod(method) {
 function getParams(params) {
     console.log("getParams");
 
-    return `params=${JSON.stringify(params)}`
+    return `params=${params}`
 }
 
 function getEndpoint(method, params) {
@@ -29,15 +29,22 @@ function getEndpoint(method, params) {
 const useFetch = (endpoint, query) => {
     console.log("useFetch");
 
+    console.log(`useFetch | ${query}`)
+
+    let _query = (JSON.parse(query))['query'];
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    let key = Object.keys(_query)[0];
+    let value = Object.values(_query)[0];
+
+
     let method = 'getAll';
-    let params = {
-        "tab": "jsearch",
-        "filter": { "job_country": "US" }
-    };
+    let params = `{"tab":"jsearch", "filter": { "${key}": "${value}" }}`
+    let url = getEndpoint(method, params)
+    console.log('useFetch | params: ' + url)
 
     const options = {
         method: 'GET',

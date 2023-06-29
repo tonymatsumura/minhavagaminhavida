@@ -31,9 +31,10 @@ const JobDetails = () => {
     const params = useSearchParams();
     const router = useRouter();
 
-    const { data, isLoading, error, refetch } = useFetch("job-details", {
-        job_id: params.id,
-    });
+    console.log("params", params);
+    //'{"query":{"job_country":"BR","num_pages":"1"}}');  params.id
+    const { data, isLoading, error, refetch } = useFetch("job-details",
+        `{"query":{"job_id":"${params.id}","num_pages":"1"}}`);
 
     const [activeTab, setActiveTab] = useState(tabs[0]);
     const [refreshing, setRefreshing] = useState(false);
@@ -48,23 +49,33 @@ const JobDetails = () => {
         switch (activeTab) {
             case "Qualifications":
                 return (
-                    <Specifics
-                        title='Qualifications'
-                        points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
-                    />
+                    <View>
+                        {/* *** */}
+                        {/* <Specifics
+                            title='Qualifications'
+                            points={data[0].job_highlights ?? ["N/A"]}
+                        /> */}
+                        <Text>{data[0].job_highlights} </Text>
+
+                    </View>
                 );
 
             case "About":
                 return (
-                    <JobAbout info={data[0].job_description ?? "No data provided"} />
+                    <View>
+                        {/* <JobAbout info={data[0].job_description ?? "No data provided"} /> */}
+                        <Text>{data[0].about} </Text>
+                    </View>
+
                 );
 
             case "Responsibilities":
                 return (
-                    <Specifics
-                        title='Responsibilities'
-                        points={data[0].job_highlights?.Responsibilities ?? ["N/A"]}
-                    />
+                    // <Specifics
+                    //     title='Responsibilities'
+                    //     points={data[0].responsibilities ?? ["N/A"]}
+                    // />
+                    <Text>{data[0].responsabilities} </Text>
                 );
 
             default:
